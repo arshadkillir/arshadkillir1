@@ -1,0 +1,81 @@
+.appShell {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f7f6;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #1a202c; /* Dark background */
+  color: #a0aec0; /* Gray text */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebarHeader {
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #2d3748;
+}
+
+.sidebarHeader h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav {
+  flex-grow: 1;
+  padding: 1rem 0;
+}
+
+.link, .activeLink {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #a0aec0;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.link:hover {
+  background-color: #2d3748;
+  color: white;
+}
+
+.activeLink {
+  background-color: #2d3748;
+  color: white;
+  border-left-color: var(--color-primary);
+}
+
+.sidebarFooter {
+  padding: 1rem;
+  border-top: 1px solid #2d3748;
+}
+
+.logoutButton {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.mainContent {
+  flex-grow: 1;
+  overflow-y: auto; /* Make content scrollable */
+  padding: 1.5rem;
+}
+
+/* For smaller screens, you might want to hide the sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    /* This is a simple approach. A better one would use a hamburger menu to toggle visibility. */
+    position: absolute;
+    left: -240px; 
+  }
+}

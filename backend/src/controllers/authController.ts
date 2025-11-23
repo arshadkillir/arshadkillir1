@@ -1,0 +1,10 @@
+export const login = (req, res) => res.json({ message: 'login OK' });
+export const changePassword = (req, res) => res.json({ message: 'changePassword OK' });
+export const forgotPassword = (req, res) => res.json({ message: 'forgotPassword OK' });
+export const resetPassword = (req, res) => res.json({ message: 'resetPassword OK' });
+export const verifyOtp = (req, res) => res.json({ message: 'verifyOtp OK' });
+export const refreshToken = (req, res) => res.json({ message: 'refreshToken OK' });
+export const register = (req, res) => res.json({ message: 'register OK' });
+export const logout = (req, res) => res.json({ message: 'logout OK' });
+export const getSubscriptionPlans = (req, res) => res.json({ message: 'getSubscriptionPlans OK' });
+export const registerTenant = (req, res) => res.json({ message: 'registerTenant OK' });

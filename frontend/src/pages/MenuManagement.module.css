@@ -1,50 +1,49 @@
 .container {
-  padding: 1rem;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.container h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .uploadSection {
-  max-width: 600px;
-  margin: 2rem 0;
+  background-color: white;
   padding: 2rem;
-  background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
 }
 
-.uploadSection h2 {
+.uploadSection h3 {
   margin-top: 0;
-}
-
-.uploadSection p {
-  color: #555;
-  margin-bottom: 1.5rem;
-}
-
-.uploadControls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  color: #34495e;
 }
 
 .fileInput {
-  font-size: 1rem;
+  display: block;
+  margin: 1.5rem 0;
 }
 
 .uploadButton {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background: var(--color-primary);
+  background-color: #3498db;
   color: white;
   border: none;
-  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-size: 1rem;
 }
 
 .uploadButton:disabled {
-  background: #ccc;
+  background-color: #bdc3c7;
   cursor: not-allowed;
 }
 
-.error { color: red; margin-top: 1rem; }
-.success { color: green; margin-top: 1rem; }
+.successMessage { color: #2ecc71; }
+.errorMessage { color: #e74c3c; }

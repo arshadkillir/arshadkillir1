@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "files": [
+    "src/server.ts" // Assuming this is your main entry file
+  ],
+  "include": ["src/**/*", "prisma/**/*"],
+  "exclude": ["node_modules"]
+}

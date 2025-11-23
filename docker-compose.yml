@@ -1,5 +1,4 @@
-﻿﻿
-services:
+﻿services:
   db:
     container_name: pos-db
     image: postgres:15
@@ -20,54 +19,50 @@ services:
 
   backend:
     container_name: pos-backend
-    build: ./backend
+    build:
+      context: ./backend
     environment:
       DATABASE_URL: ${DATABASE_URL}
       JWT_SECRET: ${JWT_SECRET}
-      NODE_ENV: docker
+      NODE_ENV: ${NODE_ENV}
     ports:
       - "4000:4000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     depends_on:
       db:
         condition: service_healthy
     healthcheck:
-      # This command uses curl inside the container to check the health endpoint
       test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
       interval: 10s
       timeout: 5s
-      retries: 5
-    # This command runs migrations and starts the server for production.
-    command: sh -c "npx prisma migrate deploy && npm start"
+      retries: 5 # Use npm start for a stable server process in Docker
+    command: sh -c "npm install && npx prisma generate && npx prisma migrate dev --name init && npm run seed && npm run dev"
     restart: unless-stopped
 
   frontend:
     container_name: pos-frontend
-    build: ./frontend
-    # Mount source code for development, but keep node_modules isolated in the container
+    build:
+      context: ./frontend
+      target: builder
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
+      - ./frontend:/app # Mount the source code
+      - /app/node_modules # Use an anonymous volume to isolate node_modules
     ports:
       - "3000:3000"
     depends_on:
-      backend:
-        condition: service_healthy
-    healthcheck:
-      # This command uses curl inside the container to check if the Vite dev server is responding
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    command: npm run dev
+      - backend # This should be a list of service names
+    command: sh -c "npm install && npm run dev"
     restart: unless-stopped
 
   maildev:
     container_name: pos-maildev
     image: maildev/maildev
     ports:
-      - "1080:1080"
-      - "1025:1025"
+      - "1080:1080" # Web UI
+      - "1025:1025" # SMTP Server
     restart: unless-stopped
 
 volumes:
-  db-data:
+  db-data: {} # Declare the named volume for the database
