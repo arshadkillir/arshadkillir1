@@ -1,0 +1,77 @@
+.container {
+  padding: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.th {
+  border-bottom: 2px solid #ddd;
+  padding: 12px 16px;
+  text-align: left;
+  background: #f8f9fa;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.td {
+  border-bottom: 1px solid #eee;
+  padding: 12px 16px;
+}
+
+.actionsContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.statusActive {
+  color: #28a745;
+}
+
+.statusInactive {
+  color: #dc3545;
+}
+
+.actionButton {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.actionButton:hover {
+  opacity: 0.8;
+}
+
+.actionButton--reset {
+  background-color: #ffc107;
+  color: black;
+  border-color: #ffc107;
+}
+
+.actionButton--deactivate {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.actionButton--reactivate {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}

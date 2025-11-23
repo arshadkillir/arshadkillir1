@@ -1,0 +1,92 @@
+﻿.card {
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid var(--color-primary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.orderId {
+  font-weight: 500;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+}
+
+.pending { background-color: #ffc107; }
+.completed { background-color: #28a745; }
+.cancelled { background-color: #dc3545; }
+
+.body {
+  padding: 1rem;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.itemList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.cancelItemButton {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+  margin-top: auto;
+}
+
+.actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.primaryAction {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.dangerAction {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}

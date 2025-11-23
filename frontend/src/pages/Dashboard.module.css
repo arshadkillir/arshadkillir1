@@ -1,0 +1,99 @@
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.dateFilterCard {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dateInput {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.exportButton {
+  margin-left: auto;
+  background: #17a2b8;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard h3 {
+  margin-top: 0;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.metricValuePositive {
+  color: #28a745;
+}
+
+.metricValueNegative {
+  color: #dc3545;
+}
+
+.metricLabel {
+  color: #666;
+}
+
+.fullWidthCard {
+  grid-column: 1 / -1;
+}
+
+.list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.listItem {
+  margin-bottom: 0.5rem;
+}
+
+.listItem strong {
+  font-weight: bold;
+}
+
+.lowStockCard {
+  border: 2px solid #dc3545;
+}
+
+.lowStockCard h3 {
+  color: #dc3545;
+}
+
+.lowStockItem strong {
+  color: #dc3545;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.pieChartCard h3 {
+  margin-top: 0;
+  text-align: center;
+}

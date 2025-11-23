@@ -1,0 +1,5 @@
+id,name,sku,qtyOnHand,unit,outletId
+1,Tomato Sauce,TS-001,50,liters,1
+2,Cheese,CH-002,20,kg,1
+3,Dough,DO-003,30,kg,1
+4,Soft Drink,SD-004,100,bottle,1

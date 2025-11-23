@@ -1,0 +1,4 @@
+id,name,category,price,inventoryItemIds
+1,Margherita Pizza,Main,32,"1,2,3"
+2,Pepperoni Pizza,Main,38,"1,2,3"
+3,Soft Drink,Beverage,8,4

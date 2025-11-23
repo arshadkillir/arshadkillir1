@@ -1,0 +1,3 @@
+id,type,outletId,tableId,itemsJson,total,status
+1,DINEIN,1,1,"[{""productId"":1,""qty"":2}]",64,NEW
+2,TAKEAWAY,1,,"[{""productId"":3,""qty"":1}]",8,DONE

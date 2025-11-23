@@ -1,0 +1,91 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header h3 {
+  margin-top: 0;
+}
+
+.statusBadge {
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.itemsSection {
+  margin: 1rem 0;
+}
+
+.itemsList {
+  padding-left: 20px;
+  margin: 0.5rem 0 0 0;
+}
+
+.item {
+  color: inherit;
+}
+
+.itemCancelled {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.cancelItemButton {
+  margin-left: 10px;
+  font-size: 0.7rem;
+  padding: 2px 4px;
+  background: #ffc107;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.actions button {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.actions .discountButton {
+  background: #ffc107;
+  color: black;
+  border-color: #ffc107;
+}
+
+.actions .cancelOrderButton {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.printButtons {
+  display: flex;
+  gap: 0.5rem;
+}

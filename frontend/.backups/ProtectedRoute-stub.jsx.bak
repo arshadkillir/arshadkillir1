@@ -1,0 +1,2 @@
+﻿import React from "react";
+export default function ProtectedRoute(){ return <div style={{padding:12}}>ProtectedRoute stub</div>; }

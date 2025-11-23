@@ -1,0 +1,28 @@
+/*
+  prisma-middleware.js
+
+  Usage in Express:
+    const prisma = require("../prismaClient");
+    const tenantMiddleware = require("./prisma-middleware");
+    app.use(tenantMiddleware());
+
+  The middleware reads tenant id from header "x-tenant-id" (or req.user.tenantId)
+  and attaches req.prisma (a request-scoped client) that already applies tenant scoping.
+*/
+module.exports = function prismaMiddleware() {
+  const prisma = require("../prismaClient");
+  return (req, res, next) => {
+    const headerTenant = req.headers["x-tenant-id"];
+    const tenantId = headerTenant || (req.user && req.user.tenantId) || null;
+
+    // create a request-scoped Prisma client that will inject tenantId into ops
+    if (tenantId) {
+      req.prisma = prisma.$with({ tenantId });
+    } else {
+      // no tenant bound: expose base client (no automatic tenant scoping)
+      req.prisma = prisma;
+    }
+
+    next();
+  };
+};

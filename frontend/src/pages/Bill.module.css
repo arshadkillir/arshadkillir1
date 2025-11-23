@@ -1,0 +1,108 @@
+.billWrapper {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+.billHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 1rem;
+}
+
+.logoPlaceholder {
+  width: 60px;
+  height: 60px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #aaa;
+}
+
+.header {
+  margin-top: 0;
+}
+
+.subHeader {
+  color: #555;
+}
+
+.itemRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-top: 2px solid #333;
+}
+
+.actionsSection {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.payButton {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.payButton:hover {
+  background: var(--color-primary-dark);
+}
+
+.downloadButton {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.downloadButton:hover {
+  background: #5a6268;
+}
+
+.billFooter {
+  text-align: center;
+  margin-top: 2rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.paymentStatus {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.error {
+  color: red;
+}

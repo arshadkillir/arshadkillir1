@@ -1,0 +1,111 @@
+.pageContainer h1 {
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--color-white);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.formCard {
+  background: #f8f9fa;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.addItemSection {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.addItemSection h4 {
+  margin-top: 0;
+}
+
+.autocompleteContainer {
+  position: relative;
+}
+
+.autocompleteResults {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocompleteItem {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.autocompleteItem:hover {
+  background: #f0f0f0;
+}
+
+.poItemsList {
+  list-style: none;
+  padding: 0;
+}
+
+.poItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.poTotal {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.submitButton {
+  padding: 10px 15px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.removeButton {
+  background: #dc3545;
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+/*
+  Define global CSS variables for a consistent theme.
+  This makes it easy to update colors and fonts across the entire app.
+*/
+:root {
+  --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --background-body: #f9fafb; /* Matches the main content background in Layout.jsx */
+  --color-primary: #1e90ff;
+  --color-text: #333;
+  --color-white: #ffffff;
+}
+
+/*
+  A simple and effective CSS reset for consistent box model behavior.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  background-color: var(--background-body);
+  color: var(--color-text);
+}
+
+button {
+  padding: 6px 12px;
+  margin: 4px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+/* Styles for printing the bill receipt */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-area, #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

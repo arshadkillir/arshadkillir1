@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  height: 100vh;
+  overflow-x: auto;
+  background-color: #333; /* Dark background for high contrast */
+}
+
+.ticket {
+  background: white;
+  border-radius: 8px;
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-top: 8px solid var(--color-gray); /* Default status color */
+}
+
+/* Status-based border colors */
+.ticket--pending {
+  border-top-color: var(--color-warning);
+}
+.ticket--preparing {
+  border-top-color: var(--color-primary);
+}
+.ticket--ready {
+  border-top-color: var(--color-success);
+}
+
+.ticketHeader {
+  padding: 1rem;
+  border-bottom: 2px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticketHeader h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.ticketHeader span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.itemQuantity {
+  font-weight: 700;
+  margin-right: 1rem;
+  min-width: 25px;
+}
+
+.item--cancelled {
+  text-decoration: line-through;
+  color: #999;
+  background-color: #f8f9fa;
+}
+
+.ticketFooter {
+  padding: 1rem;
+  border-top: 2px solid #eee;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #f0f0f0;
+}

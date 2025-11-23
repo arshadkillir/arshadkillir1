@@ -1,0 +1,29 @@
+.tabsContainer {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.tabButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-right: 10px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tabButton.active {
+  color: var(--color-primary);
+  font-weight: 600;
+  border-bottom-color: var(--color-primary);
+}
+
+.ordersGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

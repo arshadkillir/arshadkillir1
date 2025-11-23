@@ -1,0 +1,94 @@
+﻿import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import { useAuth } from './context/AuthContext.jsx';
+
+const navLinks = [
+  { to: '/dashboard', label: 'Dashboard', roles: ['ADMIN', 'MANAGER'] },
+  { to: '/', label: 'Orders', roles: ['ADMIN', 'MANAGER', 'STAFF'] },
+  { to: '/kds', label: 'KDS', roles: ['ADMIN', 'MANAGER', 'STAFF'] },
+  { to: '/tables', label: 'Tables', roles: ['ADMIN', 'MANAGER', 'STAFF'] },
+  { to: '/customers', label: 'Customers', roles: ['ADMIN', 'MANAGER', 'STAFF'] },
+  { to: '/menu', label: 'Menu', roles: ['ADMIN', 'MANAGER'] },
+  { to: '/inventory', label: 'Inventory', roles: ['ADMIN', 'MANAGER'] },
+  { to: '/purchases', label: 'Purchases', roles: ['ADMIN', 'MANAGER'] },
+  { to: '/accounts/register', label: 'Register User', roles: ['ADMIN'] },
+  { to: '/accounts/manage', label: 'Manage Users', roles: ['ADMIN'] },
+  { to: '/profile', label: 'My Profile', roles: ['ADMIN', 'MANAGER', 'STAFF'] },
+  { to: '/integrations/account-aggregator', label: 'Integrations', roles: ['ADMIN'] },
+];
+
+export default function Layout() {
+  const { user, logout } = useAuth();
+
+  // Filter navigation links based on the current user's role
+  const accessibleNavLinks = navLinks.filter(link => user && link.roles.includes(user.role));
+
+  return (
+    <div style={{ display: 'flex', height: '100vh', fontFamily: 'sans-serif' }}>
+      <nav style={{
+        width: 220,
+        background: '#ffffff',
+        borderRight: '1px solid #e0e0e0',
+        boxShadow: '2px 0 5px rgba(0,0,0,0.05)',
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+        <div style={{ padding: '1.5rem 1rem' }}>
+          <h2 style={{ paddingLeft: '1rem', marginTop: 0, marginBottom: '2rem' }}>Nandeyal POS</h2>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            {accessibleNavLinks.map(link => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  style={({ isActive }) => ({
+                    display: 'block',
+                    padding: '0.75rem 1rem',
+                    marginBottom: '0.5rem',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    color: isActive ? '#fff' : '#333',
+                    background: isActive ? 'var(--color-primary)' : 'transparent',
+                    fontWeight: isActive ? '500' : '400',
+                  })}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div style={{ marginTop: 'auto', padding: '1.5rem', borderTop: '1px solid #e0e0e0' }}>
+          {user && (
+            <div style={{ textAlign: 'center' }}>
+              <p style={{ margin: 0, fontWeight: '500' }}>{user.name}</p>
+              <p style={{ margin: '0 0 1rem 0', fontSize: '0.8rem', color: '#666' }}>{user.role}</p>
+              <button
+                onClick={logout}
+                style={{
+                  width: '100%',
+                  padding: '8px',
+                  background: '#6c757d',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer'
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+      </nav>
+      <main style={{ flex: 1, padding: '2rem', overflowY: 'auto', background: '#f9fafb' }}>
+        <Outlet />
+      </main>
+    </div>
+  );
+}
+
+
+
+
+
+

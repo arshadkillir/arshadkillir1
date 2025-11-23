@@ -1,0 +1,4 @@
+id,name,role,email,password
+1,Admin,Manager,admin@pos.local,admin123
+2,Chef,Kitchen,chef@pos.local,chef123
+3,Cashier,POS,cashier@pos.local,cashier123
