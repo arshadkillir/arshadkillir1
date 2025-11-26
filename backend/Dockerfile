@@ -1,20 +1,30 @@
-# Use the official Node.js 18 image as a base
-FROM node:18
-
-# Set the working directory inside the container
+# Stage 1: Install dependencies
+FROM node:18-alpine AS deps
 WORKDIR /app
 
-# Copy package.json and package-lock.json (or npm-shrinkwrap.json)
-COPY package*.json ./
+COPY package.json package-lock.json ./
+RUN npm install --production
 
-# Copy Prisma schema before installing dependencies to ensure Prisma Client is generated correctly
-COPY prisma ./prisma/
-
-# Install dependencies
-RUN apt-get update && apt-get install -y curl && npm install
-
-# Copy the rest of your application's code
+# Stage 2: Build the application (including Prisma client generation)
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# The backend server will run on port 4000
+# Generate the Prisma client
+RUN npx prisma generate
+
+# Stage 3: Final production image
+FROM node:18-alpine
+WORKDIR /app
+
+# Copy only the necessary files from the builder stage
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/app.js ./app.js
+COPY --from=builder /app/server.js ./server.js
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prismaClient.js ./prismaClient.js
+
 EXPOSE 4000
+CMD ["npm", "start"]

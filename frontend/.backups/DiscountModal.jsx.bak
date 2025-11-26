@@ -1,0 +1,10 @@
+﻿import React from "react";`nexport default function DiscountModal({ open, onClose, onApply }) {
+  if (!open) return null;
+  return (
+    <div style={{ padding: 16, background: "#fff", border: "1px solid #ccc" }}>
+      <p>DiscountModal placeholder</p>
+      <button onClick={onClose}>Close</button>
+    </div>
+  );
+}
+

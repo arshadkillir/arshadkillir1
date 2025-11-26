@@ -1,30 +1,33 @@
-const { PrismaClient } = require('@prisma/client');
-const bcrypt = require('bcrypt'); // We'll use bcrypt to hash passwords
+const { PrismaClient } = require("@prisma/client");
+const bcrypt = require("bcryptjs");
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Start seeding...');
+  console.log("Start seeding...");
 
-  // You can change the email and password here
-  const adminEmail = 'admin@example.com';
-  const adminPassword = 'password123';
-
-  const hashedPassword = await bcrypt.hash(adminPassword, 10);
-
-  const adminUser = await prisma.user.upsert({
-    where: { email: adminEmail },
-    update: {},
-    create: {
-      email: adminEmail,
-      name: 'Platform Admin',
-      password: hashedPassword,
-      role: 'SUPERADMIN', // This user is a SUPERADMIN, not tied to a tenant
+  // 1. Create a Tenant
+  const tenant = await prisma.tenant.create({
+    data: {
+      name: "My First Restaurant",
     },
   });
+  console.log(`Created tenant with id: ${tenant.id}`);
 
-  console.log(`Created SUPERADMIN user: ${adminUser.email}`);
-  console.log('Seeding finished.');
+  // 2. Create an OWNER for that tenant
+  const hashedPassword = await bcrypt.hash("password123", 10);
+  const owner = await prisma.user.create({
+    data: {
+      name: "Admin Owner",
+      email: "owner@example.com",
+      password: hashedPassword,
+      role: "OWNER",
+      tenantId: tenant.id,
+    },
+  });
+  console.log(`Created owner with email: ${owner.email}`);
+
+  console.log("Seeding finished.");
 }
 
 main()

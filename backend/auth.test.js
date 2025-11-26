@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../app'); // Import the Express app definition, not the server entry point
-const prisma = require('../prisma');
+const prisma = require('../prismaClient');
 const bcrypt = require('bcryptjs');
 
 // We will store the auth token for an owner user to test protected routes
@@ -34,7 +34,7 @@ beforeAll(async () => {
 
   // 3. Log in as the owner to get a token for subsequent requests
   const response = await request(app)
-    .post('/login')
+    .post('/api/auth/login')
     .send({
       email: 'owner@test.com',
       password: 'password123',
@@ -55,7 +55,7 @@ describe('Auth Endpoints', () => {
   describe('POST /login', () => {
     it('should log in a user with correct credentials and return a token', async () => {
       const res = await request(app)
-        .post('/login')
+        .post('/api/auth/login')
         .send({
           email: 'owner@test.com',
           password: 'password123',
@@ -67,7 +67,7 @@ describe('Auth Endpoints', () => {
 
     it('should fail to log in with incorrect credentials', async () => {
       const res = await request(app)
-        .post('/login')
+        .post('/api/auth/login')
         .send({
           email: 'owner@test.com',
           password: 'wrongpassword',
@@ -88,7 +88,7 @@ describe('Auth Endpoints', () => {
       };
 
       const res = await request(app)
-        .post('/register')
+        .post('/api/auth/register')
         .set('Authorization', `Bearer ${ownerToken}`) // Use the owner's token
         .send(newUser);
 
@@ -101,7 +101,7 @@ describe('Auth Endpoints', () => {
 
     it('should return 403 Forbidden if no auth token is provided', async () => {
       const res = await request(app)
-        .post('/register')
+        .post('/api/auth/register')
         .send({
           name: 'Another Staff',
           email: 'staff2@test.com',
